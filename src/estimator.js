@@ -1,12 +1,18 @@
 const covid19ImpactEstimator = (data) => {
-  const conversion = (periodType, period) => {
+  const conversionFunc = (periodType) => {
     let days;
-    if (periodType === 'days') {
-      days = period;
-    } else if (periodType === 'weeks') {
-      days = period * 7;
-    } else if (periodType === 'months') {
-      days = period * 30;
+    switch (periodType) {
+      case 'days':
+        days = data.timeToElapse;
+        break;
+      case 'weeks':
+        days = data.timeToElapse * 7;
+        break;
+      case 'months':
+        days = data.timeToElapse * 30;
+        break;
+      default:
+        days = data.timeToElapse;
     }
     return days;
   };
@@ -15,12 +21,12 @@ const covid19ImpactEstimator = (data) => {
     impact: {
       currentlyInfected: data.reportedCases * 10,
       infectionsByRequestedTime: (data.reportedCases * 10)
-      * (2 ** Math.floor((conversion(data.periodType, data.timeToElapse) / 3)))
+      * (2 ** (conversionFunc(data.periodType) / 3))
     },
     severeImpact: {
       currentlyInfected: data.reportedCases * 50,
-      infectionsByRequestedTime: (data.reportedCases * 10)
-      * (2 ** Math.floor((conversion(data.periodType, data.timeToElapse) / 3)))
+      infectionsByRequestedTime: (data.reportedCases * 50)
+      * (2 ** (conversionFunc(data.periodType) / 3))
     }
   };
 };
