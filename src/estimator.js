@@ -2,7 +2,7 @@ const covid19ImpactEstimator = (data) => {
   const conversion = (periodType, period) => {
     let days;
     if (periodType === 'days') {
-      days = 30;
+      days = period;
     } else if (periodType === 'weeks') {
       days = period * 7;
     } else if (periodType === 'months') {
