@@ -16,12 +16,12 @@ const covid19ImpactEstimator = (data) => {
     impact: {
       currentlyInfected: data.reportedCases * 10,
       infectionsByRequestedTime: (data.reportedCases * 10) * (2 ** (impact())),
-      severeCasesByRequestedTime: (data.reportedCases * 10)
+      severeCasesByRequestedTime: (data.reportedCases * 10) * (2 ** (impact()))
     },
     severeImpact: {
       currentlyInfected: data.reportedCases * 50,
       infectionsByRequestedTime: (data.reportedCases * 50) * (2 ** (impact())),
-      severeCasesByRequestedTime: (data.reportedCases * 50)
+      severeCasesByRequestedTime: (data.reportedCases * 10) * (2 ** (impact()))
     }
   };
 };
