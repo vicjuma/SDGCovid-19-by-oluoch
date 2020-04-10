@@ -11,19 +11,7 @@ const impact = (data) => {
   return 0;
 };
 const covid19ImpactEstimator = (data) => ({
-  data: {
-    region: {
-      name: 'Africa',
-      avgAge: 19.7,
-      avgDailyIncomeInUSD: 5,
-      avgDailyIncomePopulation: 0.71
-    },
-    periodType: 'days',
-    timeToElapse: 58,
-    reportedCases: 674,
-    population: 66622705,
-    totalHospitalBeds: 1380614
-  },
+  data,
   impact: {
     currentlyInfected: data.reportedCases * 10,
     infectionsByRequestedTime: (data.reportedCases * 10) * (2 ** (impact(data)))
