@@ -1,6 +1,6 @@
 const impact = (data) => {
   if (data.periodType === 'days') {
-    return (Math.trunc(data.timeToElapse / 3));
+    return (Math.trunc((data.timeToElapse * 1) / 3));
   }
   if (data.periodType === 'weeks') {
     return (Math.trunc((data.timeToElapse * 7) / 3));
