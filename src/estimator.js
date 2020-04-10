@@ -3,7 +3,7 @@ const covid19ImpactEstimator = (data) => {
     let days;
     switch (periodType) {
       case 'days':
-        days = data.timeToElapse;
+        days = data.timeToElapse * 1;
         break;
       case 'weeks':
         days = data.timeToElapse * 7;
@@ -12,7 +12,7 @@ const covid19ImpactEstimator = (data) => {
         days = data.timeToElapse * 30;
         break;
       default:
-        days = data.timeToElapse;
+        days = data.timeToElapse * 1;
     }
     return days;
   };
