@@ -8,7 +8,7 @@ const covid19ImpactEstimator = (data) => {
     steps.serioulsyInfectedCases({ impact, severeImpact });
     steps.getAvailablebedByDuaration({ data, impact, severeImpact });
 
-    // challenge 3
+
     steps.findICUImpact({ impact, severeImpact });
     steps.caseForVentilation({ impact, severeImpact });
     steps.dollarsInflightImpact({ data, impact, severeImpact });
